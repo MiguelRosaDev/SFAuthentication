@@ -57,7 +57,7 @@ SFAuthenticationSession *_authenticationVC;
                                        }
                                        [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
                                    }];
-        authenticationVC.prefersEphemeralWebBrowserSession = YES;
+        /*authenticationVC.prefersEphemeralWebBrowserSession = YES;*/
         _authenticationVC = authenticationVC;
         [authenticationVC start];
     }
