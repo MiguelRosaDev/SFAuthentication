@@ -6,6 +6,7 @@
 #import <Cordova/CDVAvailability.h>
 
 SFAuthenticationSession *_authenticationVC;
+ASWebAuthenticationSession *_authentication;
 
 @implementation SFAuthSession;
 
@@ -42,12 +43,12 @@ SFAuthenticationSession *_authenticationVC;
     if (@available(iOS 11.0, *)) {
         NSString* redirectScheme = [command.arguments objectAtIndex:0];
         NSURL* requestURL = [NSURL URLWithString:[command.arguments objectAtIndex:1]];
-        SFAuthenticationSession* authenticationVC =
+        ASWebAuthenticationSession* authentication =
         [[SFAuthenticationSession alloc] initWithURL:requestURL
                                    callbackURLScheme:redirectScheme
                                    completionHandler:^(NSURL * _Nullable callbackURL,
                                                        NSError * _Nullable error) {
-                                       _authenticationVC = nil;
+                                       _authentication = nil;
                                        CDVPluginResult *result;
                                        if (callbackURL) {
                                            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: callbackURL.absoluteString];
@@ -57,9 +58,9 @@ SFAuthenticationSession *_authenticationVC;
                                        }
                                        [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
                                    }];
-        /*authenticationVC.prefersEphemeralWebBrowserSession = YES;*/
-        _authenticationVC = authenticationVC;
-        [authenticationVC start];
+        authentication.prefersEphemeralWebBrowserSession = YES;
+        _authentication = authentication;
+        [authentication start];
     }
 }
 
