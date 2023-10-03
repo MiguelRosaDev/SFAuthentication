@@ -59,7 +59,7 @@ ASWebAuthenticationSession *_authentication;
                                        }
                                        [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
                                    }];
-        authentication.prefersEphemeralWebBrowserSession = YES;
+        authentication.prefersEphemeralWebBrowserSession = NO;
         _authentication = authentication;
         [authentication start];
     }
