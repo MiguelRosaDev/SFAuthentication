@@ -42,7 +42,7 @@ SFAuthenticationSession *_authenticationVC;
     if (@available(iOS 11.0, *)) {
         NSString* redirectScheme = [command.arguments objectAtIndex:0];
         NSURL* requestURL = [NSURL URLWithString:[command.arguments objectAtIndex:1]];
-        SFAuthenticationSession* _authenticationVC =
+        SFAuthenticationSession* authenticationVC =
         [[SFAuthenticationSession alloc] initWithURL:requestURL
                                    callbackURLScheme:redirectScheme
                                    completionHandler:^(NSURL * _Nullable callbackURL,
@@ -57,8 +57,8 @@ SFAuthenticationSession *_authenticationVC;
                                        }
                                        [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
                                    }];
+        authenticationVC.prefersEphemeralWebBrowserSession = YES;
         _authenticationVC = authenticationVC;
-        /*_authenticationVC.prefersEphemeralWebBrowserSession = YES;*/
         [authenticationVC start];
     }
 }
