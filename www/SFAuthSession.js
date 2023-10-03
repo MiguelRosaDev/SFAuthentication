@@ -8,7 +8,7 @@ var SFAuthSession = {
     exec(cb, errorCb, PLUGIN_NAME, 'start', [redirectScheme, requestURL]);
   },
   startwithoutpopup: function(redirectScheme, requestURL, cb, errorCb) {
-    exec(cb, errorCb, PLUGIN_NAME, 'start', [redirectScheme, requestURL]);
+    exec(cb, errorCb, PLUGIN_NAME, 'startwithoutpopup', [redirectScheme, requestURL]);
   }
 };
 
