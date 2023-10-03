@@ -44,7 +44,7 @@ ASWebAuthenticationSession *_authentication;
         NSString* redirectScheme = [command.arguments objectAtIndex:0];
         NSURL* requestURL = [NSURL URLWithString:[command.arguments objectAtIndex:1]];
         ASWebAuthenticationSession* authentication =
-        [[SFAuthenticationSession alloc] initWithURL:requestURL
+        [[ASWebAuthenticationSession alloc] initWithURL:requestURL
                                    callbackURLScheme:redirectScheme
                                    completionHandler:^(NSURL * _Nullable callbackURL,
                                                        NSError * _Nullable error) {
