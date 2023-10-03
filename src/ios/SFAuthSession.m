@@ -42,7 +42,7 @@ SFAuthenticationSession *_authenticationVC;
     if (@available(iOS 11.0, *)) {
         NSString* redirectScheme = [command.arguments objectAtIndex:0];
         NSURL* requestURL = [NSURL URLWithString:[command.arguments objectAtIndex:1]];
-        SFAuthenticationSession* _authenticationVC2 =
+        SFAuthenticationSession* _authenticationVC =
         [[SFAuthenticationSession alloc] initWithURL:requestURL
                                    callbackURLScheme:redirectScheme
                                    completionHandler:^(NSURL * _Nullable callbackURL,
