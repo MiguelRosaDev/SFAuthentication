@@ -2,7 +2,7 @@
 #import "SFAuthSession.h"
 
 #import <SafariServices/SFAuthenticationSession.h>
-#import <SafariServices/ASWebAuthenticationSession.h>
+#import <AuthenticationServices/ASWebAuthenticationSession.h>
 
 #import <Cordova/CDVAvailability.h>
 
