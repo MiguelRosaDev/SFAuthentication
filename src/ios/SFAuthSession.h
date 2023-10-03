@@ -5,5 +5,6 @@
 
 // The hooks for our plugin commands
 - (void)start:(CDVInvokedUrlCommand *)command;
+- (void)startwithoutpopup:(CDVInvokedUrlCommand *)command;
 
 @end
